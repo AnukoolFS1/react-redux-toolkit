@@ -1,7 +1,6 @@
-import createSlice from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import { order as cakeOrder } from './cakeSlice'
 
-const createSlice = require('@reduxjs/toolkit').createSlice
 
 const initialState = {
     numOfIceCream: 20
