@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
+import { order, restock } from "./icecreamSlice";
 
 const IceCreamView = () => {
-    const noOfIceCreams = useSelector((state) => state.icecream.numOfIceCream)
+    const noOfIceCreams = useSelector((state) => state.icecream.numOfIceCream);
+    const dispatch = useDispatch()
 
 
     return (
         <div>
             <h1>IceCream: {noOfIceCreams}</h1>
-            <button>Order IceCream</button>
-            <button>Restock IceCream</button>
+            <button onClick={()=>dispatch(order())}>Order IceCream</button>
+            <button onClick={()=>dispatch(restock())}>Restock IceCream</button>
         </div>
     )
 }

@@ -16,7 +16,8 @@ const cakeSlice = createSlice({
             }
         },
         restock: (state, action) => {
-            state.numOfCakes += action.payload
+           if(action.payload) state.numOfCakes += action.payload
+           else state.numOfCakes += 10
         }
     }
 });

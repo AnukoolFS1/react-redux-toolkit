@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit'
-import { order as cakeOrder } from './cakeSlice'
+import {order as CakeOrder} from './cakeSlice'
 
 
 const initialState = {
-    numOfIceCream: 20
+    numOfIceCream: 50
 }
 
 const icecreamSlice = createSlice({
@@ -18,11 +18,12 @@ const icecreamSlice = createSlice({
             }
         },
         restock: (state, action) => {
-            state.numOfIceCream += action.payload
+           if(action.payload) state.numOfIceCream += action.payload
+           else state.numOfIceCream += 20
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(cakeOrder, (state) => {
+        builder.addCase(CakeOrder, (state) => {
             state.numOfIceCream--
         })
     }
